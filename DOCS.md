@@ -87,7 +87,19 @@ section header (`01 About Me`, `02 Skills`, …):
 - **Contact** — a CTA panel ("Let's build something together") with social
   cards that lift and reveal on scroll.
 
-### 6. `src/App.tsx` — layout
+### 6. `src/components/CursorGlow.tsx` (new) — cursor light
+
+A soft amber light that follows the mouse cursor around the page:
+- Fixed, `pointer-events-none` blurred radial glow that eases toward the pointer
+  (`requestAnimationFrame` lerp) for a smooth trailing feel.
+- Uses `mix-blend-multiply` in light mode / `mix-blend-screen` in dark mode so it
+  blends naturally against either background.
+- **Only enabled on fine-pointer devices** (`(pointer: fine)`), so it never
+  shows on touchscreens; fades out when the cursor leaves the window.
+
+Rendered once at the top of `App`.
+
+### 7. `src/App.tsx` — layout
 
 Renders `Header` → `Hero` → `main` (sections) → `footer`. Kept the animated
 blob background. Wider section spacing (`space-y-28`) so each section gets room
@@ -123,6 +135,7 @@ All animations automatically turn off under `prefers-reduced-motion`.
 
 ## Files
 
-**New:** `src/components/Reveal.tsx`, `src/components/Hero.tsx`, `DOCS.md`
+**New:** `src/components/Reveal.tsx`, `src/components/Hero.tsx`,
+`src/components/CursorGlow.tsx`, `DOCS.md`
 **Changed:** `src/index.css`, `src/App.tsx`, `src/components/Header.tsx`,
 `About.tsx`, `Skill.tsx`, `Project.tsx`, `Contact.tsx`

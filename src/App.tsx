@@ -1,5 +1,6 @@
 import About from "./components/About";
 import Contact from "./components/Contact";
+import CursorGlow from "./components/CursorGlow";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Project from "./components/Project";
@@ -9,6 +10,8 @@ import { ThemeProvider } from "./components/theme";
 export function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <CursorGlow />
+
       {/* Animated ambient background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-amber-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-amber-950/30" />
