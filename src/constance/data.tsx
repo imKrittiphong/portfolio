@@ -13,6 +13,8 @@ import Linkedin from "@/assets/img/linkedin-icon-2-logo-svgrepo-com.svg";
 import tanstack from "@/assets/img/logo-color-600.png";
 import prisma from "@/assets/img/light-prisma-svgrepo-com.svg";
 import pSql from "@/assets/img/PostgresSQL.svg";
+import NextJs from  "@/assets/img/Next.js.svg"
+import NestJs from  "@/assets/img/Nest.js.svg"
 
 //Device Repair report
 import AdminDash from "@/assets/img/Projectimg/DeviceRepairReport/admindash.png";
@@ -40,6 +42,8 @@ export const Language = [
 export const Tool = [
   { img: React, tools: "React", exrt: "Intermediate" },
   { img: React, tools: "React-Native", exrt: "Basic" },
+  { img: NextJs, tools: "Next.Js", exrt: "Basic" },
+  { img: NestJs, tools: "Nest.Js", exrt: "Basic" },
   { img: Laravel, tools: "Laravel", exrt: "Basic" },
   { img: Postman, tools: "Post Man", exrt: "Basic" },
   { img: Git, tools: "Git", exrt: "Basic" },

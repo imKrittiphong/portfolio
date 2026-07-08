@@ -1,4 +1,4 @@
-import { MapPin, Sparkles } from "lucide-react";
+import { GraduationCap, MapPin, Sparkles } from "lucide-react";
 import Reveal from "./Reveal";
 
 function About() {
@@ -63,6 +63,30 @@ function About() {
           ))}
         </Reveal>
       </div>
+
+      {/* Education */}
+      <Reveal
+        delay={120}
+        className="mt-8 flex flex-col gap-4 rounded-2xl border border-zinc-200/70 bg-white/60 p-6 backdrop-blur-sm transition-colors hover:border-amber-300/70 sm:flex-row sm:items-center dark:border-zinc-800/70 dark:bg-zinc-900/40 dark:hover:border-amber-700/50"
+      >
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
+          <GraduationCap className="h-6 w-6" />
+        </div>
+        <div className="flex-1">
+          <p className="text-xs font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-500">
+            Education
+          </p>
+          <h3 className="mt-1 font-semibold text-zinc-900 dark:text-zinc-100">
+            Bachelor's Degree — B.Sc.
+          </h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            Information Technology and Mobile Software Innovation (ITMI)
+          </p>
+          <p className="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            Mahanakorn University
+          </p>
+        </div>
+      </Reveal>
     </section>
   );
 }
