@@ -1,4 +1,3 @@
-
 export default function Header() {
   return (
     <>
@@ -35,7 +34,7 @@ export default function Header() {
             hover:after:scale-x-100 cursor-pointer
           "
         >
-          About Me
+          <a href="#about">About Me</a>
         </div>
         <div
           className="
@@ -48,7 +47,7 @@ export default function Header() {
           hover:after:scale-x-100 cursor-pointer
           "
         >
-          Skills
+          <a href="#skill">Skills</a>
         </div>
         <div
           className="
@@ -60,8 +59,8 @@ export default function Header() {
           after:transition-transform after:duration-400
           hover:after:scale-x-100 cursor-pointer
           "
-          >
-          Project
+        >
+          <a href="#project">Project</a>
         </div>
         <div
           className="
@@ -73,10 +72,9 @@ export default function Header() {
           after:transition-transform after:duration-400
           hover:after:scale-x-100 cursor-pointer
           "
-          >
-          Contact
+        >
+          <a href="#contact">Contact</a>
         </div>
-        
       </div>
     </>
   );

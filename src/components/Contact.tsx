@@ -6,7 +6,7 @@ function Contact() {
   };
 
   return (
-    <div>
+    <div id="contact">
       <div className="flex flex-col-1 justify-center gap-4">
         {ContactData.map((d, index) => (
           <div

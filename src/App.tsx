@@ -1,8 +1,8 @@
-import About from "./components/custom/About";
-import Contact from "./components/custom/Contact";
-import Header from "./components/custom/Header";
-import Project from "./components/custom/Project";
-import Skill from "./components/custom/Skill";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Header from "./components/Header";
+import Project from "./components/Project";
+import Skill from "./components/Skill";
 import { ThemeProvider } from "./components/theme";
 
 export function App() {
@@ -17,7 +17,7 @@ export function App() {
         </div>
         <div className="relative z-0">
           <div className="relative z-0">
-              <Header />
+            <Header />
             <main className="max-w-4xl mx-auto  px-4 space-y-24">
               <About />
               <Skill />
@@ -25,7 +25,7 @@ export function App() {
               <Contact />
             </main>
             <footer className="text-center py-6 text-zinc-700">
-              © 2026  Krittiphong Butsaba
+              © 2026 Krittiphong Butsaba
             </footer>
           </div>
         </div>

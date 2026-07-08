@@ -1,9 +1,12 @@
 import { Language, Tool } from "@/constance/data";
-import { Card, CardContent, CardDescription } from "../ui/card";
+import { Card, CardContent, CardDescription } from "./ui/card";
 
 function Skill() {
   return (
-    <div className="space-y-6 border border-zinc-300 dark:border-zinc-700 rounded-lg p-6">
+    <div
+      id="skill"
+      className="space-y-6 border border-zinc-300 dark:border-zinc-700 rounded-lg p-6"
+    >
       <div className="text-2xl font-bold">Skills</div>
       <div className="space-y-4">
         <div className="text-sm font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wide">
@@ -33,6 +36,7 @@ function Skill() {
         <div className="text-sm font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wide">
           Tools / Framework
         </div>
+
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4">
           {Tool.map((i) => (
             <div key={i.tools} className="group relative">
@@ -51,6 +55,16 @@ function Skill() {
               </Card>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="space-y-4">
+        <div className="text-sm font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wide">
+          KnowLedge
+        </div>
+        <div className="text-sm">
+          <p>
+            AI-assisted development (Agent, Skills) / UX/UI Best Practices / Git & GitHub for team collaboration / Clean Code / Scalable Frontend Architecture / Database Design / System Design
+          </p>
         </div>
       </div>
     </div>

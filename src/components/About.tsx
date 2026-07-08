@@ -1,11 +1,12 @@
 import ProfilePic from "@/assets/img/stdpic.jpg";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 import { ArrowUpRight } from "lucide-react";
 
 
 function About() {
+
   return (
-    <div className="mx-auto max-w-4xl  mt-38">
+    <div id="about" className="mx-auto max-w-4xl  mt-38">
       <div>
         <h1 className="scroll-m-20 ml-2 text-3xl font-bold tracking-tight">
           About Me
@@ -24,12 +25,20 @@ function About() {
                 technology and enjoy creating web applications. I am dedicated
                 to continuously improving my skills and growing as a developer.
               </p>
-              
-          <hr/> 
+
+              <hr />
             </div>
           </div>
           <div className="flex justify-center-safe mt-14">
-            <Button className="cursor-pointer">Get My CV <ArrowUpRight /></Button>
+            <Button asChild className="cursor-pointer">
+              <a
+                href={ProfilePic}
+                download="profile.png"
+              >
+                Get My CV
+                <ArrowUpRight />
+              </a>
+            </Button>
           </div>
         </div>
       </div>
