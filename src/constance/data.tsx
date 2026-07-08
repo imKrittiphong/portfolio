@@ -69,7 +69,7 @@ export const ProjectData = [
   {
     id: 1,
     gitLink: "https://github.com/imKrittiphong/device-repair-report-app.git",
-    tech: [PHP, Laravel, TailwindCSS],
+    tech: [PHP, Laravel],
     img: [AdminDash, HomeUser, Register, Report],
     projectName: "Repair Device Report",
     projectDis:
