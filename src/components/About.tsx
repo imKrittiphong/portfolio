@@ -21,14 +21,16 @@ function About() {
             <Sparkles className="h-5 w-5 text-amber-500" />
             Krittiphong Butsaba
           </h3>
-          <p className="leading-relaxed text-zinc-600 dark:text-zinc-300">
-            Hello! I'm passionate about technology and enjoy creating web
-            applications from the first sketch to the final deploy. I care about
-            clean code, thoughtful UX, and building things that actually help
-            people — and I'm always looking for the next thing to learn.
+          <p className="indent-7.5 text-justify text-zinc-600 dark:text-zinc-300">
+            I’m a Frontend Developer passionate about building intuitive,
+            responsive, and user-friendly web applications. I work with modern
+            frontend technologies to turn designs into functional interfaces,
+            integrate APIs, and write maintainable code. I’m also interested in
+            AI-assisted development and continuously learning new technologies
+            to improve my skills and deliver better solutions.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            {["Problem solver", "Fast learner", "Team player"].map((tag) => (
+            {["Problem solver", "Fast learner",].map((tag) => (
               <span
                 key={tag}
                 className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-700 dark:text-amber-400"
@@ -39,10 +41,7 @@ function About() {
           </div>
         </Reveal>
 
-        <Reveal
-          delay={220}
-          className="md:col-span-2 flex flex-col gap-4"
-        >
+        <Reveal delay={220} className="md:col-span-2 flex flex-col gap-4">
           {[
             { label: "Role", value: "Frontend / Full-Stack Dev" },
             { label: "Focus", value: "React · TypeScript · Next.Js" },

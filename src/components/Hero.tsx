@@ -1,5 +1,6 @@
 import { ArrowUpRight, ChevronDown, Download } from "lucide-react";
 import ProfilePic from "@/assets/img/stdpic.jpg";
+import CV from "@/assets/img/Krittiphong-butsaba_CV.pdf"
 import ReactLogo from "@/assets/img/React.svg";
 import TSLogo from "@/assets/img/TSLogo.svg";
 import TailwindCSS from "@/assets/img/Tailwind CSS.svg";
@@ -83,7 +84,7 @@ export default function Hero() {
           </a>
         </Button>
         <Button asChild size="lg" variant="outline" className="cursor-pointer">
-          <a href={ProfilePic} download="profile.png">
+          <a href={CV} download="Krittiphong-butsaba_CV.pdf">
             <Download />
             Get My CV
           </a>

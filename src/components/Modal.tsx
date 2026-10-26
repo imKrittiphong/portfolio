@@ -1,4 +1,4 @@
-import GitHup from "@/assets/img/GitHub_Invertocat_White.svg";
+import GithubIcon from "@/assets/img/github-icon-1-logo-svgrepo-com.svg";
 import {
   Dialog,
   DialogHeader,
@@ -53,8 +53,8 @@ function Modal({
           </div>
           <div className="flex justify-between w-full">
             <a href={Link} target="_blank">
-              <img
-                src={GitHup}
+              <ThemeImg
+                src={GithubIcon}
                 alt="github"
                 className="w-8 cursor-pointer hover:scale-110 transition"
                 />

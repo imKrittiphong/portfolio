@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { ContactData } from "@/constance/data";
 import Reveal from "./Reveal";
+import ThemeImg from "./ThemeImg";
 import { Separator } from "./ui/separator";
 
 function Contact() {
@@ -33,7 +34,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full border border-zinc-200/70 bg-white/70 px-5 py-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-500/10 dark:border-zinc-800/70 dark:bg-zinc-900/60"
               >
-                <img
+                <ThemeImg
                   src={contact.img}
                   alt={contact.cont}
                   className="h-6 w-6 shrink-0"
