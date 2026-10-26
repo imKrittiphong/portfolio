@@ -45,7 +45,7 @@ function About() {
         >
           {[
             { label: "Role", value: "Frontend / Full-Stack Dev" },
-            { label: "Focus", value: "React · TypeScript · Tailwind" },
+            { label: "Focus", value: "React · TypeScript · Next.Js" },
             { label: "Location", value: "Thailand", icon: true },
           ].map((item) => (
             <div
