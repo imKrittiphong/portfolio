@@ -9,6 +9,8 @@ import TailwindCSS from "@/assets/img/Tailwind CSS.svg";
 import Git from "@/assets/img/Git.svg";
 import Figma from "@/assets/img/Figma.svg";
 import Github from "@/assets/img/github-svgrepo-com.svg";
+import GithubIcon from "@/assets/img/github-icon-1-logo-svgrepo-com.svg";
+import GithubWhite from "@/assets/img/GitHub_Invertocat_White.svg";
 import Linkedin from "@/assets/img/linkedin-icon-2-logo-svgrepo-com.svg";
 import tanstack from "@/assets/img/logo-color-600.png";
 import prisma from "@/assets/img/light-prisma-svgrepo-com.svg";
@@ -36,7 +38,7 @@ import mw4 from "@/assets/img/Projectimg/myWeigth/page4.png";
 import mw5 from "@/assets/img/Projectimg/myWeigth/page5.png";
 import mw6 from "@/assets/img/Projectimg/myWeigth/page6.png";
 
-export const DarkImg: Record<string, string> = { [NextJs]: NextJSw };
+export const DarkImg: Record<string, string> = { [NextJs]: NextJSw, [GithubIcon]: GithubWhite };
 
 export const Language = [
   { img: TSLogo, lang: "TypeScript", exrt: "Intermediate" },
@@ -62,7 +64,7 @@ export const Tool = [
 
 export const ContactData = [
   {
-    img: Github,
+    img: GithubIcon,
     cont: "GitHup",
     nameAct: "imKrittiphong",
     url: "https://github.com/imKrittiphong",
