@@ -36,7 +36,7 @@ export function App() {
           <Contact />
         </main>
         <footer className="border-t border-zinc-200/60 py-8 text-center text-sm text-zinc-500 dark:border-zinc-800/60 dark:text-zinc-500">
-          © 2026 Krittiphong Butsaba · Built with React &amp; Tailwind CSS
+          © 2026 Krittiphong Butsaba 
         </footer>
       </div>
     </ThemeProvider>

@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { ContactData } from "@/constance/data";
 import Reveal from "./Reveal";
+import { Separator } from "./ui/separator";
 
 function Contact() {
   return (
@@ -49,6 +50,12 @@ function Contact() {
               </a>
             </Reveal>
           ))}
+        </div>
+        <Separator className="mt-6" />
+        <div className="mt-4">
+          <span className="block text-md text-zinc-500 dark:text-zinc-400">
+            @ im.krittipbutsaba29@gmail.com
+          </span>
         </div>
       </Reveal>
     </section>
