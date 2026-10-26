@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ProjectData } from "@/constance/data";
 import Reveal from "./Reveal";
 import Modal from "./Modal";
+import ThemeImg from "./ThemeImg";
 
 function Project() {
   const [openId, setOpenId] = useState<number | null>(null);
@@ -45,7 +46,7 @@ function Project() {
                   </h3>
                   <div className="flex shrink-0 gap-1.5">
                     {project.tech.slice(0, 4).map((t, i) => (
-                      <img key={i} src={t} alt="" className="h-5 w-5" />
+                      <ThemeImg key={i} src={t} alt="" className="h-5 w-5" />
                     ))}
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "./ui/dialog";
 import { Label } from "./ui/label";
+import ThemeImg from "./ThemeImg";
 
 interface PopupProps {
   id: number;
@@ -61,7 +62,7 @@ function Modal({
             <div className="flex gap-3">
             <Label className="text-amber-500">Work Tool :</Label>
               {tech.map((img, i) => (
-                <img key={i} src={img} className="w-8" />
+                <ThemeImg key={i} src={img} className="w-8" />
               ))}
             </div>
           </div>

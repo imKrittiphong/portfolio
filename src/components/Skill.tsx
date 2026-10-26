@@ -1,15 +1,14 @@
 import { Language, Tool } from "@/constance/data";
 import Reveal from "./Reveal";
+import ThemeImg from "./ThemeImg";
 
-const KNOWLEDGE = [
-  "AI-assisted development",
-  "UX/UI Best Practices",
-  "Git & GitHub For Team Working",
-  "Clean Code",
-  "Scalable Frontend Architecture",
-  "Database Design",
-  "System Design",
-];
+// const KNOWLEDGE = [
+//   "AI-assisted development",
+//   "UX/UI Best Practices",
+//   "Git & GitHub For Team Working",
+//   "Clean Code",
+//   "Scalable Frontend Architecture",
+// ];
 
 interface SkillItem {
   img: string;
@@ -27,7 +26,7 @@ function SkillGrid({ items }: { items: SkillItem[] }) {
         >
           <div className="absolute -inset-0.5 -z-10 rounded-xl bg-linear-to-r from-amber-400 to-amber-600 opacity-0 blur-md transition duration-300 group-hover:opacity-70" />
           <div className="flex h-full flex-col items-center gap-2 rounded-xl border border-zinc-200/70 bg-white/70 p-4 backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-1 dark:border-zinc-800/70 dark:bg-zinc-900/70">
-            <img
+            <ThemeImg
               src={item.img}
               alt={item.name}
               className="h-8 w-8 transition-transform duration-300 group-hover:scale-110"
@@ -86,7 +85,7 @@ function Skill() {
           <SkillGrid items={tools} />
         </div>
 
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <Reveal
             as="h3"
             className="text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400"
@@ -104,7 +103,7 @@ function Skill() {
               </Reveal>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
