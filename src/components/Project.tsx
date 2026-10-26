@@ -32,6 +32,18 @@ function Project() {
                   alt={project.projectName}
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
+                <span
+                  className={`absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur-sm ${
+                    project.done
+                      ? "bg-emerald-500/90 text-white"
+                      : "bg-amber-500/90 text-zinc-900"
+                  }`}
+                >
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full ${project.done ? "bg-white" : "animate-pulse bg-zinc-900"}`}
+                  />
+                  {project.done ? "Completed" : "In Progress"}
+                </span>
                 <div className="absolute inset-0 flex items-end justify-center bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <span className="mb-4 inline-flex items-center gap-1 rounded-full bg-white/90 px-4 py-1.5 text-sm font-medium text-zinc-900">
                     View details <ArrowUpRight className="h-4 w-4" />

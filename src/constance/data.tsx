@@ -16,6 +16,7 @@ import pSql from "@/assets/img/PostgresSQL.svg";
 import NextJs from  "@/assets/img/Next.js.svg"
 import NextJSw from "@/assets/img/nextjs-white.svg"
 import NestJs from  "@/assets/img/Nest.js.svg"
+import Fastwork from "@/assets/img/fastwork.svg"
 
 //Device Repair report
 import AdminDash from "@/assets/img/Projectimg/DeviceRepairReport/admindash.png";
@@ -26,6 +27,14 @@ import Report from "@/assets/img/Projectimg/DeviceRepairReport/report.png";
 //pokedex
 import page1 from "@/assets/img/Projectimg/pokedex/page1.png"
 import page2 from "@/assets/img/Projectimg/pokedex/page2.png"
+
+//myWeight
+import mw1 from "@/assets/img/Projectimg/myWeigth/page1.png";
+import mw2 from "@/assets/img/Projectimg/myWeigth/page2.png";
+import mw3 from "@/assets/img/Projectimg/myWeigth/page3.png";
+import mw4 from "@/assets/img/Projectimg/myWeigth/page4.png";
+import mw5 from "@/assets/img/Projectimg/myWeigth/page5.png";
+import mw6 from "@/assets/img/Projectimg/myWeigth/page6.png";
 
 export const DarkImg: Record<string, string> = { [NextJs]: NextJSw };
 
@@ -64,6 +73,12 @@ export const ContactData = [
     nameAct: "Krittiphong Butsaba",
     url: "https://linkedin.com/in/krittiphong-butsaba-145b97384",
   },
+  {
+    img: Fastwork,
+    cont: "Fastwork",
+    nameAct: "mosdevdob",
+    url: "https://fastwork.com/user/mosdevdob",
+  },
 ];
 
 export const ProjectData = [
@@ -73,6 +88,7 @@ export const ProjectData = [
     tech: [PHP, Laravel],
     img: [AdminDash, HomeUser, Register, Report],
     projectName: "Repair Device Report",
+    done: true,
     projectDis:
       "A system for reporting and tracking broken devices in the university, so they get fixed faster.",
     learned:
@@ -80,20 +96,22 @@ export const ProjectData = [
   },
   {
     id: 2,
-    gitLink: "https://github.com/imKrittiphong/kahterm.git",
+    gitLink: "https://github.com/imKrittiphong",
     tech: [TSLogo,React],
     img: [page1, page2],
     projectName: "PokéDex",
+    done: true,
     projectDis: "A web app for searching and exploring Pokémon data.",
     learned: "Learned how to fetch and display data from a public API.",
   },
   {
     id: 3,
-    gitLink: "https://github.com/imKrittiphong/kahterm.git",
+    gitLink: "https://github.com/imKrittiphong/",
     tech: [TSLogo, NextJs, prisma],
-    img: [page1, page2],
+    img: [mw1, mw2, mw3, mw4, mw5, mw6],
     projectName: "myWeight",
-    projectDis: "Wep app for track Process of Caloris, Workout Program",
-    learned: "Create a web app with 3d landingpage And Fullstuck App",
+    done: false,
+    projectDis: "A web app for tracking calorie intake and workout programs.",
+    learned: "Built a full-stack web app with a 3D landing page.",
   },
 ];
