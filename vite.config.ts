@@ -5,6 +5,8 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
+  // served from https://imkrittiphong.github.io/portfolio/
+  base: "/portfolio/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
