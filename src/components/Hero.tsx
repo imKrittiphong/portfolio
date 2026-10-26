@@ -78,7 +78,7 @@ export default function Hero() {
       >
         <Button asChild size="lg" className="cursor-pointer">
           <a href="#project">
-            View Projects
+            View My Projects
             <ArrowUpRight />
           </a>
         </Button>

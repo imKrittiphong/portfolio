@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import CursorGlow from "./components/CursorGlow";
@@ -6,6 +7,8 @@ import Hero from "./components/Hero";
 import Project from "./components/Project";
 import Skill from "./components/Skill";
 import { ThemeProvider } from "./components/theme";
+
+const FlowLines = lazy(() => import("./components/FlowLines"));
 
 export function App() {
   return (
@@ -19,6 +22,9 @@ export function App() {
         <div className="absolute right-1/4 bottom-0 h-96 w-96 animate-blob rounded-full bg-zinc-300 opacity-30 mix-blend-multiply blur-2xl filter animation-delay-2000 dark:bg-zinc-700/20" />
         <div className="absolute top-1/2 right-0 h-96 w-96 animate-blob rounded-full bg-amber-100 opacity-20 mix-blend-multiply blur-2xl filter animation-delay-4000 dark:bg-amber-800/10" />
       </div>
+      <Suspense>
+        <FlowLines />
+      </Suspense>
 
       <div className="relative z-0">
         <Header />
