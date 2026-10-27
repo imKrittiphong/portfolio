@@ -1,91 +1,95 @@
-import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+import ProfilePic from "@/assets/img/stdpic.jpg";
 import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+
+const DETAILS = [
+  { label: "Role", value: "Frontend / Full-Stack Developer" },
+  { label: "Focus", value: "React · TypeScript · Next.Js" },
+  { label: "Location", value: "Thailand" },
+  {
+    label: "Education",
+    value: "B.Sc. Information Technology and Mobile Software Innovation (ITMI)",
+    note: "Mahanakorn University",
+  },
+];
 
 function About() {
   return (
     <section id="about" className="scroll-mt-24">
-      <Reveal className="mb-10 flex items-center gap-3">
-        <span className="text-sm font-semibold uppercase tracking-widest text-amber-600 dark:text-amber-500">
-          01
-        </span>
-        <h2 className="text-3xl font-bold tracking-tight">About Me</h2>
-        <span className="h-px flex-1 bg-linear-to-r from-amber-500/50 to-transparent" />
-      </Reveal>
+      <SectionHeading
+        index="01"
+        label="About"
+        title={
+          <>
+            A developer with an eye for <em className="text-ember">detail</em>.
+          </>
+        }
+      />
 
-      <div className="grid gap-8 md:grid-cols-5">
-        <Reveal
-          delay={100}
-          className="md:col-span-3 rounded-2xl border border-zinc-200/70 bg-white/60 p-8 backdrop-blur-sm transition-colors hover:border-amber-300/70 dark:border-zinc-800/70 dark:bg-zinc-900/40 dark:hover:border-amber-700/50"
-        >
-          <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold">
-            <Sparkles className="h-5 w-5 text-amber-500" />
-            Krittiphong Butsaba
-          </h3>
-          <p className="indent-7.5 text-justify text-zinc-600 dark:text-zinc-300">
-            I’m a Frontend Developer passionate about building intuitive,
-            responsive, and user-friendly web applications. I work with modern
-            frontend technologies to turn designs into functional interfaces,
-            integrate APIs, and write maintainable code. I’m also interested in
-            AI-assisted development and continuously learning new technologies
-            to improve my skills and deliver better solutions.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {["Problem solver", "Fast learner",].map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-700 dark:text-amber-400"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={220} className="md:col-span-2 flex flex-col gap-4">
-          {[
-            { label: "Role", value: "Frontend / Full-Stack Dev" },
-            { label: "Focus", value: "React · TypeScript · Next.Js" },
-            { label: "Location", value: "Thailand", icon: true },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl border border-zinc-200/70 bg-white/60 p-5 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 dark:border-zinc-800/70 dark:bg-zinc-900/40"
-            >
-              <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                {item.label}
-              </p>
-              <p className="mt-1 flex items-center gap-1.5 font-medium text-zinc-800 dark:text-zinc-100">
-                {item.icon && <MapPin className="h-4 w-4 text-amber-500" />}
-                {item.value}
-              </p>
+      <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+        {/* Portrait */}
+        <Reveal delay={100} className="md:col-span-5">
+          <figure className="group relative">
+            <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+              <img
+                src={ProfilePic}
+                alt="Krittiphong Butsaba"
+                className="h-full w-full object-cover grayscale transition-all duration-1000 ease-out group-hover:scale-105 group-hover:grayscale-0"
+              />
+              <div className="absolute inset-0 bg-gold/20 mix-blend-multiply transition-opacity duration-1000 group-hover:opacity-0" />
             </div>
-          ))}
+            {/* Gold corner marks */}
+            <span className="absolute -top-2 -left-2 h-6 w-6 border-t border-l border-gold" />
+            <span className="absolute -right-2 -bottom-2 h-6 w-6 border-r border-b border-gold" />
+            <figcaption className="eyebrow mt-4 flex justify-between text-muted-foreground">
+              <span>Krittiphong Butsaba</span>
+              <span>Fig. 01</span>
+            </figcaption>
+          </figure>
         </Reveal>
-      </div>
 
-      {/* Education */}
-      <Reveal
-        delay={120}
-        className="mt-8 flex flex-col gap-4 rounded-2xl border border-zinc-200/70 bg-white/60 p-6 backdrop-blur-sm transition-colors hover:border-amber-300/70 sm:flex-row sm:items-center dark:border-zinc-800/70 dark:bg-zinc-900/40 dark:hover:border-amber-700/50"
-      >
-        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
-          <GraduationCap className="h-6 w-6" />
+        {/* Statement + details */}
+        <div className="md:col-span-7">
+          <Reveal delay={150}>
+            <p className="font-serif text-3xl leading-[1.2] md:text-4xl">
+              I build <em className="text-ember">intuitive</em>, responsive interfaces — turning designs into
+              functional products with code that is easy to <em>maintain</em>.
+            </p>
+          </Reveal>
+          <Reveal delay={250}>
+            <p className="mt-8 max-w-xl leading-relaxed text-muted-foreground">
+              I’m a Frontend Developer passionate about building user-friendly web applications. I work with modern
+              frontend technologies, integrate APIs, and keep learning — especially around AI-assisted development —
+              to deliver better solutions.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Problem solver", "Fast learner"].map((tag) => (
+                <span key={tag} className="eyebrow rounded-full border border-border px-3 py-1.5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <dl className="mt-12">
+            {DETAILS.map((d, i) => (
+              <Reveal
+                key={d.label}
+                delay={300 + i * 80}
+                className="group grid grid-cols-3 gap-4 border-t border-border py-5 last:border-b"
+              >
+                <dt className="eyebrow pt-1 text-muted-foreground transition-colors group-hover:text-ember">
+                  {d.label}
+                </dt>
+                <dd className="col-span-2">
+                  {d.value}
+                  {d.note && <span className="mt-1 block text-sm text-muted-foreground">{d.note}</span>}
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
         </div>
-        <div className="flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-500">
-            Education
-          </p>
-          <h3 className="mt-1 font-semibold text-zinc-900 dark:text-zinc-100">
-            Bachelor's Degree — B.Sc.
-          </h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            Information Technology and Mobile Software Innovation (ITMI)
-          </p>
-          <p className="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-            Mahanakorn University
-          </p>
-        </div>
-      </Reveal>
+      </div>
     </section>
   );
 }

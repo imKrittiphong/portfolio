@@ -65,7 +65,7 @@ export const Tool = [
 export const ContactData = [
   {
     img: GithubIcon,
-    cont: "GitHup",
+    cont: "GitHub",
     nameAct: "imKrittiphong",
     url: "https://github.com/imKrittiphong",
   },

@@ -1,5 +1,56 @@
 # Portfolio — UI Redesign & Animation Docs
 
+## v2 — "Editorial luxury" redesign
+
+Minimal, classic/luxury and a little bold: an editorial magazine layout with a
+serif display face, mono metadata labels, hairline rules and a gold/ember
+accent on an ivory (light) or ink (dark) ground.
+
+### Design system (`src/index.css`)
+
+| Token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `--background` | ivory `#f5f1e8` | ink `#0b0a09` | page |
+| `--foreground` | ink `#0e0d0b` | `#f2ede3` | text, inverted sections |
+| `gold` | `#e9a800` | `#f4bf2a` | hover fills, marks, selection |
+| `ember` | `#f2600c` | `#ff7a2b` | emphasis words, indices, live dots |
+
+Fonts: **Cormorant Garamond** (`font-serif`, display/headlines),
+**JetBrains Mono** (`.eyebrow` labels), Noto Sans (body). Radius is 0.25rem.
+
+Utilities: `.eyebrow`, `.link-draw` (underline draws in), `.btn-sweep` (fill
+sweeps up on hover; colour via `--sweep`), `.line-mask` (headline lines rise
+out of a mask), `.grain` (film-grain overlay), `.animate-scrollLine`.
+
+### Components
+
+- **`HeroOrb.tsx`** (Three.js, lazy-loaded) — ~9k points on a sphere, shader
+  displaced by simplex noise, repelled by the cursor, tilts with the pointer and
+  loosens/fades as you scroll. Two orbit rings + a travelling bead. Colours and
+  blending follow the theme; rendering pauses when the hero is off-screen.
+  Replaces the old `FlowLines.tsx`.
+- **`Hero.tsx`** — meta row, oversized serif name, intro, CTAs, spinning
+  circular "Selected Work" badge.
+- **`TechMarquee.tsx`** — italic serif ticker of the stack.
+- **`SectionHeading.tsx`** — `(01) About` rule + large serif title.
+- **`About`** — duotone portrait (colour on hover) with gold corner marks, serif
+  statement, definition-list details.
+- **`Skill`** — hairline spec-sheet grid; cells fill with gold on hover.
+- **`Project`** — numbered editorial rows; a preview image trails the cursor
+  (desktop) or shows inline (touch). Opens the redesigned two-column `Modal`.
+- **`Contact`** — inverted closing section: big email with copy button, social
+  rows, oversized signature, footer.
+- **`Header`** — fixed, numbered nav, live Bangkok time, theme toggle, full-screen
+  mobile menu.
+- **`Cursor.tsx`** — ember ring that trails the pointer, swells over links and
+  shows a label over `data-cursor="Label"` elements. Replaces `CursorGlow.tsx`.
+
+All motion respects `prefers-reduced-motion`.
+
+---
+
+## v1 (previous redesign)
+
 A record of the landing-page–style redesign of this portfolio: what changed, why,
 and how the animation system works so it's easy to extend later.
 
