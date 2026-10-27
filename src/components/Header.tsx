@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#skill", label: "Skills" },
-  { href: "#project", label: "Projects" },
+  { href: "#project", label: "Work" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -24,7 +24,7 @@ function ThemeToggle() {
       type="button"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="grid h-9 w-9 place-items-center rounded-full border border-zinc-300/70 text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700/70 dark:text-zinc-300 dark:hover:bg-zinc-800 cursor-pointer"
+      className="grid h-9 w-9 cursor-pointer place-items-center rounded-full border border-border transition-colors hover:border-foreground"
     >
       <Sun className="hidden h-4 w-4 dark:block" />
       <Moon className="block h-4 w-4 dark:hidden" />
@@ -32,8 +32,27 @@ function ThemeToggle() {
   );
 }
 
+// Live local time — a small detail that says "a real person, somewhere".
+function LocalTime() {
+  const format = () =>
+    new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Bangkok" }).format(new Date());
+  const [time, setTime] = useState(format);
+
+  useEffect(() => {
+    const id = setInterval(() => setTime(format()), 15_000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span className="eyebrow hidden text-muted-foreground lg:inline">
+      BKK <span className="text-foreground">{time}</span>
+    </span>
+  );
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -42,38 +61,68 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
+
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-zinc-200/60 bg-white/70 backdrop-blur-xl dark:border-zinc-800/60 dark:bg-zinc-950/60"
-          : "border-b border-transparent bg-transparent"
-      )}
-    >
-      <nav className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-        <a
-          href="#top"
-          className="text-lg font-bold tracking-tight bg-linear-to-r from-zinc-900 to-amber-600 bg-clip-text text-transparent dark:from-zinc-100 dark:to-amber-500"
-        >
-          KB<span className="text-amber-500">.</span>
-        </a>
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          scrolled && !open ? "border-b border-border bg-background/80 backdrop-blur-xl" : "border-b border-transparent"
+        )}
+      >
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
+          <a href="#top" className="group flex items-baseline gap-2" onClick={() => setOpen(false)}>
+            <span className="font-serif text-2xl leading-none italic">K</span>
+            <span className="eyebrow hidden transition-colors group-hover:text-ember sm:inline">Krittiphong · Portfolio</span>
+          </a>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="relative text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100
-                after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-amber-500 after:transition-transform after:duration-300 hover:after:scale-x-100"
+          <div className="hidden items-center gap-9 md:flex">
+            {NAV_LINKS.map((link, i) => (
+              <a key={link.href} href={link.href} className="group flex items-baseline gap-1.5 text-sm">
+                <span className="font-mono text-[10px] text-muted-foreground transition-colors group-hover:text-ember">
+                  0{i + 1}
+                </span>
+                <span className="link-draw">{link.label}</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <LocalTime />
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              aria-expanded={open}
+              className="eyebrow cursor-pointer md:hidden"
             >
-              {link.label}
-            </a>
-          ))}
-        </div>
+              {open ? "Close" : "Menu"}
+            </button>
+          </div>
+        </nav>
+      </header>
 
-        <ThemeToggle />
-      </nav>
-    </header>
+      {/* Mobile menu */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 flex flex-col justify-end bg-background px-5 pb-12 transition-[clip-path] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] md:hidden",
+          open ? "[clip-path:inset(0_0_0_0)]" : "pointer-events-none [clip-path:inset(0_0_100%_0)]"
+        )}
+      >
+        <ul className="space-y-2">
+          {NAV_LINKS.map((link, i) => (
+            <li key={link.href} className="flex items-baseline gap-4 border-t border-border pt-3">
+              <span className="font-mono text-xs text-ember">0{i + 1}</span>
+              <a href={link.href} onClick={() => setOpen(false)} className="font-serif text-6xl italic">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
