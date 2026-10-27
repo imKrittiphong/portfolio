@@ -47,7 +47,7 @@ function HoverPreview({ active }: { active: number | null }) {
       >
         <div
           className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateY(${-(active ?? 0) * 100}%)` }}
+          style={{ transform: `translateY(${(-(active ?? 0) * 100) / ProjectData.length}%)` }}
         >
           {ProjectData.map((p) => (
             <img key={p.id} src={p.img[0]} alt="" className="h-56 w-80 object-cover object-top" />
