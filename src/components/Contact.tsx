@@ -1,64 +1,103 @@
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUp, ArrowUpRight, Check, Copy } from "lucide-react";
 import { ContactData } from "@/constance/data";
 import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 import ThemeImg from "./ThemeImg";
-import { Separator } from "./ui/separator";
 
+const EMAIL = "im.krittipbutsaba29@gmail.com";
+
+// Inverted (ink on light theme, ivory on dark) closing section with the footer.
 function Contact() {
-  return (
-    <section id="contact" className="scroll-mt-24">
-      <Reveal className="mb-10 flex items-center gap-3">
-        <span className="text-sm font-semibold uppercase tracking-widest text-amber-600 dark:text-amber-500">
-          04
-        </span>
-        <h2 className="text-3xl font-bold tracking-tight">Get In Touch</h2>
-        <span className="h-px flex-1 bg-linear-to-r from-amber-500/50 to-transparent" />
-      </Reveal>
+  const [copied, setCopied] = useState(false);
 
-      <Reveal className="relative overflow-hidden rounded-3xl border border-zinc-200/70 bg-white/60 p-10 text-center backdrop-blur-sm dark:border-zinc-800/70 dark:bg-zinc-900/40">
-        <div className="absolute -top-20 left-1/2 -z-10 h-56 w-56 -translate-x-1/2 rounded-full bg-amber-400/20 blur-3xl" />
-        <h3 className="text-2xl font-bold tracking-tight">
-          Let's build something together
-        </h3>
-        <p className="mx-auto mt-3 max-w-md text-zinc-600 dark:text-zinc-400">
-          I'm currently open to new opportunities and collaborations. Feel free
-          to reach out through any of the channels below.
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.location.href = `mailto:${EMAIL}`;
+    }
+  };
+
+  return (
+    <section id="contact" className="relative scroll-mt-0 bg-foreground text-background">
+      <div className="mx-auto max-w-6xl px-5 pt-28 pb-10 md:px-8 md:pt-36">
+        <SectionHeading
+          index="04"
+          label="Contact"
+          title={
+            <>
+              Let’s build something <em className="text-gold">remarkable</em> together.
+            </>
+          }
+        />
+
+        <div className="grid gap-16 md:grid-cols-12">
+          <Reveal className="md:col-span-7">
+            <p className="eyebrow opacity-60">Write to me</p>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="link-draw font-serif text-3xl break-all italic transition-colors hover:text-gold sm:text-4xl md:text-5xl"
+              >
+                {EMAIL}
+              </a>
+              <button
+                type="button"
+                onClick={copy}
+                aria-label="Copy email address"
+                className="eyebrow inline-flex cursor-pointer items-center gap-2 rounded-full border border-background/25 px-3 py-2 transition-colors hover:border-gold hover:text-gold"
+              >
+                {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+            <p className="mt-8 max-w-md leading-relaxed opacity-60">
+              I’m currently open to new opportunities and collaborations — a quick hello is always welcome.
+            </p>
+          </Reveal>
+
+          <ul className="md:col-span-5">
+            {ContactData.map((c, i) => (
+              <Reveal as="li" key={c.cont} delay={i * 100} className="border-t border-background/15 last:border-b">
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 py-5"
+                >
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-background">
+                    <ThemeImg src={c.img} alt="" className="h-5 w-5 object-contain" />
+                  </span>
+                  <span className="flex-1 transition-transform duration-500 group-hover:translate-x-2">
+                    <span className="block font-serif text-2xl">{c.cont}</span>
+                    <span className="eyebrow block opacity-50">{c.nameAct}</span>
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 opacity-50 transition-all duration-500 group-hover:rotate-45 group-hover:text-gold group-hover:opacity-100" />
+                </a>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+
+        {/* Oversized signature */}
+        <p
+          aria-hidden
+          className="mt-24 font-serif text-[clamp(4rem,19vw,16rem)] leading-[0.8] tracking-[-0.04em] whitespace-nowrap opacity-[0.07] select-none"
+        >
+          Krittiphong
         </p>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          {ContactData.map((contact, index) => (
-            <Reveal key={contact.cont} delay={index * 100}>
-              <a
-                href={contact.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full border border-zinc-200/70 bg-white/70 px-5 py-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-500/10 dark:border-zinc-800/70 dark:bg-zinc-900/60"
-              >
-                <ThemeImg
-                  src={contact.img}
-                  alt={contact.cont}
-                  className="h-6 w-6 shrink-0"
-                />
-                <span>
-                  <span className="block text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                    {contact.cont}
-                  </span>
-                  <span className="block text-xs text-zinc-500 dark:text-zinc-400">
-                    {contact.nameAct}
-                  </span>
-                </span>
-                <ArrowUpRight className="h-4 w-4 text-zinc-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-500" />
-              </a>
-            </Reveal>
-          ))}
-        </div>
-        <Separator className="mt-6" />
-        <div className="mt-4">
-          <span className="block text-md text-zinc-500 dark:text-zinc-400">
-            @ im.krittipbutsaba29@gmail.com
-          </span>
-        </div>
-      </Reveal>
+        <footer className="eyebrow mt-6 flex flex-col gap-4 border-t border-background/15 pt-6 opacity-70 sm:flex-row sm:items-center sm:justify-between">
+          <span>© 2026 Krittiphong Butsaba</span>
+          <span>Designed &amp; built with React · Three.js</span>
+          <a href="#top" className="inline-flex items-center gap-2 transition-colors hover:text-gold">
+            Back to top <ArrowUp className="h-3.5 w-3.5" />
+          </a>
+        </footer>
+      </div>
     </section>
   );
 }
